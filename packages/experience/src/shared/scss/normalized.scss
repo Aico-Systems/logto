@@ -12,9 +12,12 @@ body {
   margin: 0;
   padding: 0;
   word-break: break-word;
-  background: var(--aico-body-bg, #0f172a);
-  color: var(--color-type-primary, #f8fafc);
+  background: var(--aico-body-bg, #0a0d12);
+  color: var(--aico-text-primary, #ffffff);
   font: var(--font-body-2);
+
+  // Ensure smooth animations
+  scroll-behavior: smooth;
 }
 
 * {
@@ -23,11 +26,22 @@ body {
   text-underline-offset: 2px;
 }
 
+// Smooth transitions on theme/color changes
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 0.15s;
+  transition-timing-function: ease;
+}
+
 input {
   border: none;
   outline: none;
   padding: 0;
   margin: 0;
+  // Disable transitions on input to prevent autofill flash
+  transition: none !important;
 }
 
 input::-webkit-outer-spin-button,
@@ -41,16 +55,10 @@ input[type='number'] {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-brand-default, #2563eb);
+  outline: 2px solid #2563eb;
   outline-offset: 2px;
 }
 
-// Smooth scrolling
-html {
-  scroll-behavior: smooth;
-}
-
-// Selection styling
 ::selection {
-  background: var(--aico-brand-container, rgba(37, 99, 235, 0.2));
+  background: rgba(37, 99, 235, 0.3);
 }

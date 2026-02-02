@@ -5,6 +5,7 @@ import { Outlet } from 'react-router-dom';
 import PageContext from '@/Providers/PageContextProvider/PageContext';
 import usePlatform from '@/hooks/use-platform';
 import LogtoSignature from '@/shared/components/LogtoSignature';
+import { getBrandingLogoUrl } from '@/shared/utils/logo';
 import { layoutClassNames } from '@/utils/consts';
 
 import CustomContent from './CustomContent';
@@ -15,8 +16,22 @@ const AppLayout = () => {
   const { isMobile } = usePlatform();
   const hideLogtoBranding = experienceSettings?.hideLogtoBranding === true;
 
+  const logoUrl = experienceSettings
+    ? getBrandingLogoUrl({
+      theme,
+      branding: experienceSettings.branding,
+      isDarkModeEnabled: experienceSettings.color.isDarkModeEnabled,
+    })
+    : undefined;
+
   return (
     <div className={styles.viewBox}>
+      {/* Logo at top-left */}
+      {logoUrl && (
+        <div className={styles.topLogo}>
+          <img src={logoUrl} alt="Logo" className={styles.logo} />
+        </div>
+      )}
       <div className={classNames(styles.container, layoutClassNames.pageContainer)}>
         {!isMobile && <CustomContent className={layoutClassNames.customContent} />}
         <main className={classNames(styles.main, layoutClassNames.mainContent)}>

@@ -5,20 +5,24 @@
   justify-content: center;
   align-items: center;
   height: 44px;
-  padding: 0 24px;
-  border-radius: var(--field-radius, 8px);
+  padding: 0 28px;
+  border-radius: 8px;
   cursor: pointer;
   font: var(--font-label-1);
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 15px;
   appearance: none;
   -webkit-tap-highlight-color: transparent;
   transition:
-    background-color var(--aico-motion-standard, 0.15s ease),
-    box-shadow var(--aico-motion-standard, 0.15s ease);
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
   user-select: none;
   border: none;
   position: relative;
   overflow: hidden;
+  will-change: transform;
+  transform: translateZ(0); // GPU acceleration
 
   .content {
     position: relative;
@@ -52,106 +56,116 @@
 .small {
   min-width: 85px;
   height: 36px;
-  padding: 0 16px;
+  padding: 0 18px;
   font: var(--font-label-2);
 }
 
-// Primary - AICO Blue
+// Primary - Landing Page Gradient Style
 .primary {
-  background: #2563eb; // AICO Blue
-  color: var(--color-static-white);
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.25);
 
   &.disabled:not(.loading),
   &:disabled:not(.loading) {
     background: rgba(255, 255, 255, 0.08);
     color: rgba(255, 255, 255, 0.4);
+    box-shadow: none;
     cursor: not-allowed;
+    transform: none;
   }
 
   &:active {
-    background: #1d4ed8; // Darker blue
+    transform: translateY(0) scale(0.98);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
   }
 
   &.loadingActive {
-    background: #3b82f6; // Lighter blue
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
   }
 }
 
-// Secondary - Outlined
+// Secondary - Outlined with glow
 .secondary {
   background: transparent;
-  border: 1px solid var(--field-border);
-  color: var(--aico-text-primary);
+  border: 2px solid rgba(37, 99, 235, 0.5);
+  color: #2563eb;
 
   &.disabled:not(.loading),
   &:disabled:not(.loading) {
-    border-color: var(--aico-grey-700);
-    color: var(--aico-grey-500);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.3);
     cursor: not-allowed;
   }
 
   &:active {
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(37, 99, 235, 0.1);
   }
 }
 
-// Danger
+// Danger with glow
 .danger {
-  background: var(--aico-danger, #ef4444);
-  color: var(--color-static-white);
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.25);
 
   &.disabled:not(.loading),
   &:disabled:not(.loading) {
-    background: var(--aico-grey-700);
-    color: var(--aico-grey-500);
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.4);
+    box-shadow: none;
   }
 
   &:active {
-    background: rgb(185, 28, 28);
+    transform: translateY(0) scale(0.98);
   }
 
   &.loadingActive {
-    background: rgb(248, 113, 113);
+    background: linear-gradient(135deg, #f87171 0%, #ef4444 100%);
   }
 }
 
 :global(body.desktop) {
   .button {
     font: var(--font-label-2);
-    height: 40px;
+    height: 42px;
   }
 
   .primary {
     &:focus-visible {
-      outline: 2px solid #2563eb;
+      outline: 2px solid #667eea;
       outline-offset: 2px;
     }
 
+    // 3D Hover lift effect
     &:not(:disabled):not(:active):not(.loadingActive):hover {
-      background: #1d4ed8; // AICO Blue darker
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
     }
   }
 
   .secondary {
     &:focus-visible {
-      outline: 2px solid var(--color-brand-default);
+      outline: 2px solid #2563eb;
       outline-offset: 2px;
     }
 
     &:not(:disabled):not(:active):hover {
-      background: var(--field-bg-hover);
-      border-color: var(--field-border-hover);
+      background: #2563eb;
+      color: white;
+      border-color: #2563eb;
     }
   }
 
   .danger {
     &:focus-visible {
-      outline: 2px solid var(--aico-danger);
+      outline: 2px solid #ef4444;
       outline-offset: 2px;
     }
 
     &:not(:disabled):not(:active):not(.loadingActive):hover {
-      background: rgb(220, 38, 38);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(239, 68, 68, 0.4);
     }
   }
 }

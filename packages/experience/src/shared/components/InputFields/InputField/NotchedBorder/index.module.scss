@@ -62,6 +62,7 @@
   }
 
   &.active {
+
     .border,
     .outline {
       legend {
@@ -79,11 +80,11 @@
 
   &.focused {
     .border {
-      border-color: var(--color-brand-default);
+      border-color: #2563eb;
     }
 
     .label {
-      color: var(--color-brand-default);
+      color: #2563eb;
     }
   }
 }
@@ -105,6 +106,7 @@
 }
 
 .container.noLabel {
+
   .border,
   .outline {
     legend {

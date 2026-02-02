@@ -6,12 +6,47 @@
   align-items: center;
   justify-content: center;
   @include _.full-width;
+  position: relative;
+
+  // Animated aurora effect
+  &::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background:
+      conic-gradient(from 0deg at 50% 50%,
+        transparent 0deg,
+        rgba(102, 126, 234, 0.08) 60deg,
+        transparent 120deg,
+        rgba(118, 75, 162, 0.06) 180deg,
+        transparent 240deg,
+        rgba(102, 126, 234, 0.05) 300deg,
+        transparent 360deg);
+    animation: rotateAurora 30s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+@keyframes rotateAurora {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .card {
   width: 100%;
-  max-width: 420px; // Wider
+  max-width: 420px;
   @include _.flex-column;
+  position: relative;
+  z-index: 1;
 
   >*:last-child {
     margin-bottom: 0;

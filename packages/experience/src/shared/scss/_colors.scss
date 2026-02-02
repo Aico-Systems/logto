@@ -20,9 +20,10 @@
   --aico-primary-dark: rgb(29, 78, 216);
   --accent-color-primary: var(--aico-primary);
 
-  // Landing gradient accent
+  // Landing gradient accent (purple-blue)
   --gradient-start: #667eea;
   --gradient-end: #764ba2;
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 
   // Semantic
   --aico-success: rgb(34, 197, 94);
@@ -48,6 +49,10 @@
   --color-brand-hover: var(--aico-primary-dark);
   --color-brand-pressed: rgb(30, 64, 175);
   --color-brand-loading: var(--aico-primary-light);
+
+  // Danger colors
+  --color-danger-default: var(--aico-danger);
+  --color-overlay-danger-focused: rgba(239, 68, 68, 0.3);
 
   --color-bg-body: #f8f9ff;
   --color-bg-layer-1: #ffffff;
@@ -83,6 +88,10 @@
   --color-brand-hover: rgb(96, 165, 250);
   --color-brand-pressed: var(--aico-primary);
   --color-brand-loading: rgb(147, 197, 253);
+
+  // Danger colors
+  --color-danger-default: var(--aico-danger);
+  --color-overlay-danger-focused: rgba(239, 68, 68, 0.3);
 
   // Landing page dark vibes - VERY dark
   --color-bg-body: #0a0d12;
