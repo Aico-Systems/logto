@@ -19,11 +19,11 @@
     background:
       conic-gradient(from 0deg at 50% 50%,
         transparent 0deg,
-        rgba(102, 126, 234, 0.08) 60deg,
+        rgba(var(--aico-primary-light-rgb), 0.08) 60deg,
         transparent 120deg,
-        rgba(118, 75, 162, 0.06) 180deg,
+        rgba(var(--aico-primary-rgb), 0.06) 180deg,
         transparent 240deg,
-        rgba(102, 126, 234, 0.05) 300deg,
+        rgba(var(--aico-primary-dark-rgb), 0.05) 300deg,
         transparent 360deg);
     animation: rotateAurora 30s linear infinite;
     pointer-events: none;

@@ -16,8 +16,8 @@
 }
 
 .dropdownContainer {
-  background: #1d2229;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--color-bg-float);
+  border: 1px solid var(--color-line-border);
   border-radius: var(--field-radius, 8px);
   overflow: hidden;
   padding: 4px;

@@ -21,7 +21,7 @@
       padding: 0 _.unit(4);
       flex: 1;
       background: inherit;
-      caret-color: #2563eb;
+      caret-color: var(--color-brand-default);
       font: var(--font-body-1);
       color: var(--color-type-primary);
       outline: none;
@@ -44,7 +44,7 @@
         background-color: transparent !important;
         // Extremely long transition to prevent browser default
         transition: background-color 999999s ease-in-out 0s;
-        caret-color: #2563eb !important;
+        caret-color: var(--color-brand-default) !important;
       }
 
       &:-webkit-autofill {

@@ -15,9 +15,13 @@
 /* AICO Tokens */
 @mixin aico-tokens {
   // Brand - AICO Mint primary
-  --aico-primary: rgb(16, 185, 129);
-  --aico-primary-light: rgb(52, 211, 153);
-  --aico-primary-dark: rgb(5, 150, 105);
+  --aico-primary-rgb: 16, 185, 129;
+  --aico-primary-light-rgb: 52, 211, 153;
+  --aico-primary-dark-rgb: 5, 150, 105;
+
+  --aico-primary: rgb(var(--aico-primary-rgb));
+  --aico-primary-light: rgb(var(--aico-primary-light-rgb));
+  --aico-primary-dark: rgb(var(--aico-primary-dark-rgb));
   --accent-color-primary: var(--aico-primary);
 
   // Landing gradient accent (Mint-Blue)
@@ -39,24 +43,100 @@
 }
 
 @mixin light {
+  /* Color Platte */
   --color-neutral-0: transparent;
-  --color-neutral-10: #0f172a; // Grey-900
-  --color-neutral-50: #64748b; // Grey-500
-  --color-neutral-90: #f1f5f9; // Grey-100
+  --color-neutral-10: #0f172a;
+  --color-neutral-20: #e2e8f0;
+  --color-neutral-50: #64748b;
+  --color-neutral-80: #cbd5e1;
+  --color-neutral-90: #f1f5f9;
+  --color-neutral-95: #f8fafc;
   --color-neutral-100: #ffffff;
 
+  --color-neutral-variant-60: #94a3b8;
+  --color-neutral-variant-70: #cbd5e1;
+  --color-neutral-variant-80: #e2e8f0;
+  --color-neutral-variant-90: #f1f5f9;
+
+  --color-danger-30: #991b1b;
+  --color-danger-40: #dc2626;
+  --color-danger-50: #ef4444;
+
+  --color-success-60: #16a34a;
+  --color-success-70: #22c55e;
+  --color-success-80: #4ade80;
+  --color-success-90: #86efac;
+
+  --color-brand-30: rgb(4, 120, 87);
+  --color-brand-40: var(--aico-primary);
+  --color-brand-50: var(--aico-primary-dark);
+  --color-brand-60: var(--aico-primary-light);
+  --color-brand-70: rgb(110, 231, 183);
+
+  --color-alert-60: #d97706;
+  --color-alert-70: #fbbf24;
+  --color-alert-90: #fef3c7;
+  --color-alert-99: #fffbeb;
+
+  /* Text & Icon */
+  --color-type-primary: #0f172a;
+  --color-type-secondary: #475569;
+  --color-type-disable: rgba(15, 23, 42, 35%);
+  --color-type-link: var(--color-brand-default);
+
+  /* Line */
+  --color-line-divider: rgba(15, 23, 42, 12%);
+  --color-line-border: rgba(15, 23, 42, 0.12);
+  --color-line-border-transparent: rgba(15, 23, 42, 25%);
+
+  /* Container */
+  --color-container-on-alert: var(--color-alert-70);
+  --color-container-alert: var(--color-alert-99);
+
+  /* Background */
+  --color-bg-body-base: #f8fafc;
+  --color-bg-body: #ffffff;
+  --color-bg-layer-1: #ffffff;
+  --color-bg-layer-2: #f1f5f9;
+  --color-bg-body-overlay: #ffffff;
+  --color-bg-float-base: #f1f5f9;
+  --color-bg-float: #ffffff;
+  --color-bg-float-overlay: #ffffff;
+  --color-bg-mask: rgba(0, 0, 0, 40%);
+  --color-bg-toast: #1e293b;
+  --color-bg-state-unselected: #f1f5f9;
+  --color-bg-state-disabled: rgba(15, 23, 42, 8%);
+  --color-bg-light: #f8fafc;
+
+  /* Brand */
   --color-brand-default: var(--aico-primary);
   --color-brand-hover: var(--aico-primary-dark);
   --color-brand-pressed: rgb(4, 120, 87);
   --color-brand-loading: var(--aico-primary-light);
 
-  // Danger colors
+  /* Danger */
   --color-danger-default: var(--aico-danger);
-  --color-overlay-danger-focused: rgba(239, 68, 68, 0.3);
+  --color-danger-hover: #dc2626;
+  --color-danger-pressed: #991b1b;
 
-  --color-bg-body: #ffffff;
-  --color-bg-layer-1: #f1f5f9;
+  /* Success */
+  --color-success-default: var(--aico-success);
+  --color-success-hover: #16a34a;
+  --color-success-pressed: #14532d;
+  --color-success-disable: #bbf7d0;
 
+  /* Overlay */
+  --color-overlay-neutral-hover: rgba(15, 23, 42, 8%);
+  --color-overlay-neutral-pressed: rgba(15, 23, 42, 12%);
+  --color-overlay-neutral-focused: rgba(15, 23, 42, 16%);
+  --color-overlay-danger-hover: rgba(239, 68, 68, 8%);
+  --color-overlay-danger-pressed: rgba(239, 68, 68, 12%);
+  --color-overlay-danger-focused: rgba(239, 68, 68, 16%);
+  --color-overlay-brand-hover: rgba(16, 185, 129, 8%);
+  --color-overlay-brand-pressed: rgba(16, 185, 129, 12%);
+  --color-overlay-brand-focused: rgba(16, 185, 129, 16%);
+
+  // AICO Specific tokens
   --aico-body-bg: #ffffff;
   --aico-card-bg: #ffffff;
   --aico-card-border: 1px solid rgba(15, 23, 42, 0.08);
@@ -78,32 +158,115 @@
 }
 
 @mixin dark {
-  --color-neutral-0: #f8fafc;
+  /* Color Platte */
+  --color-neutral-0: #ffffff;
   --color-neutral-10: #f8fafc;
+  --color-neutral-20: #cbd5e1;
   --color-neutral-50: #94a3b8;
-  --color-neutral-90: #0f172a; // Grey-900
-  --color-neutral-100: #020617; // Grey-950
+  --color-neutral-80: #475569;
+  --color-neutral-90: #0f172a;
+  --color-neutral-95: #020617;
+  --color-neutral-99: #020617;
+  --color-neutral-100: #000000;
 
+  --color-neutral-variant-60: #64748b;
+  --color-neutral-variant-70: #475569;
+  --color-neutral-variant-80: #334155;
+  --color-neutral-variant-90: #1e293b;
+
+  --color-danger-30: #fee2e2;
+  --color-danger-40: #fecaca;
+  --color-danger-50: #fca5a5;
+  --color-danger-60: #f87171;
+  --color-danger-70: #ef4444;
+  --color-danger-80: #dc2626;
+
+  --color-success-60: #4ade80;
+  --color-success-70: #22c55e;
+  --color-success-80: #16a34a;
+  --color-success-90: #14532d;
+
+  --color-brand-30: #d1fae5;
+  --color-brand-40: #a7f3d0;
+  --color-brand-50: #6ee7b7;
+  --color-brand-60: var(--aico-primary);
+  --color-brand-70: var(--aico-primary-light);
+
+  --color-surface: var(--color-neutral-99);
+  --color-surface-2: rgba(16, 185, 129, 0.08);
+  --color-surface-3: rgba(16, 185, 129, 0.11);
+  --color-surface-4: rgba(16, 185, 129, 0.14);
+
+  --color-alert-60: #ca8000;
+  --color-alert-70: #a76900;
+  --color-alert-90: #663e00;
+  --color-alert-99: #2b1700;
+
+  /* Text & Icon */
+  --color-type-primary: #f8fafc;
+  --color-type-secondary: #cbd5e1;
+  --color-type-disable: rgba(248, 250, 252, 35%);
+  --color-type-link: var(--color-brand-default);
+
+  /* Line */
+  --color-line-divider: rgba(248, 250, 252, 14%);
+  --color-line-border: rgba(248, 250, 252, 0.12);
+  --color-line-border-transparent: rgba(248, 250, 252, 20%);
+
+  /* Container */
+  --color-container-on-alert: var(--color-alert-60);
+  --color-container-alert: var(--color-alert-90);
+
+  /* Background */
+  --color-bg-body-base: #000000;
+  --color-bg-body: #020617;
+  --color-bg-body-overlay: #0f172a;
+  --color-bg-layer-1: #0f172a;
+  --color-bg-layer-2: #020617;
+  --color-bg-float-base: #000000;
+  --color-bg-float: #0f172a;
+  --color-bg-float-overlay: #1e293b;
+  --color-bg-mask: rgba(0, 0, 0, 60%);
+  --color-bg-toast: #475569;
+  --color-bg-state-unselected: #1e293b;
+  --color-bg-state-disabled: rgba(248, 250, 252, 8%);
+  --color-bg-light: rgba(248, 250, 252, 0.16);
+
+  /* Brand */
   --color-brand-default: var(--aico-primary);
   --color-brand-hover: var(--aico-primary-light);
   --color-brand-pressed: var(--aico-primary-dark);
   --color-brand-loading: var(--aico-primary-light);
 
-  // Danger colors
+  /* Danger */
   --color-danger-default: var(--aico-danger);
-  --color-overlay-danger-focused: rgba(239, 68, 68, 0.3);
+  --color-danger-hover: #f87171;
+  --color-danger-pressed: #dc2626;
 
-  // Landing page dark vibes - VERY dark matches console
-  --color-bg-body: #020617;
-  --color-bg-layer-1: #0f172a;
+  /* Success */
+  --color-success-default: var(--aico-success);
+  --color-success-hover: #4ade80;
+  --color-success-pressed: #16a34a;
+  --color-success-disable: #14532d;
 
+  /* Overlay */
+  --color-overlay-neutral-hover: rgba(248, 250, 252, 8%);
+  --color-overlay-neutral-pressed: rgba(248, 250, 252, 12%);
+  --color-overlay-neutral-focused: rgba(248, 250, 252, 16%);
+  --color-overlay-danger-hover: rgba(239, 68, 68, 8%);
+  --color-overlay-danger-pressed: rgba(239, 68, 68, 12%);
+  --color-overlay-danger-focused: rgba(239, 68, 68, 16%);
+  --color-overlay-brand-hover: rgba(16, 185, 129, 8%);
+  --color-overlay-brand-pressed: rgba(16, 185, 129, 12%);
+  --color-overlay-brand-focused: rgba(16, 185, 129, 16%);
+
+  // AICO Specific tokens
   --aico-body-bg: #020617;
   --aico-card-bg: #0f172a;
   --aico-card-border: 1px solid rgba(248, 250, 252, 0.1);
   --aico-text-primary: #f8fafc;
   --aico-text-secondary: #cbd5e1;
 
-  // Field tokens - dark
   --field-bg: #0f172a;
   --field-bg-hover: #1e293b;
   --field-border: rgba(248, 250, 252, 0.12);

@@ -62,14 +62,14 @@
 
 // Primary - Landing Page Gradient Style
 .primary {
-  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  background: linear-gradient(135deg, var(--color-brand-default) 0%, var(--color-brand-hover) 100%);
   color: white;
-  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.25);
+  box-shadow: 0 4px 15px rgba(var(--aico-primary-rgb), 0.25);
 
   &.disabled:not(.loading),
   &:disabled:not(.loading) {
-    background: rgba(255, 255, 255, 0.08);
-    color: rgba(255, 255, 255, 0.4);
+    background: var(--color-bg-state-disabled);
+    color: var(--color-type-disable);
     box-shadow: none;
     cursor: not-allowed;
     transform: none;
@@ -77,42 +77,42 @@
 
   &:active {
     transform: translateY(0) scale(0.98);
-    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 2px 8px rgba(var(--aico-primary-rgb), 0.3);
   }
 
   &.loadingActive {
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    background: linear-gradient(135deg, var(--color-brand-loading) 0%, var(--color-brand-default) 100%);
   }
 }
 
 // Secondary - Outlined with glow
 .secondary {
   background: transparent;
-  border: 2px solid rgba(37, 99, 235, 0.5);
-  color: #2563eb;
+  border: 2px solid var(--color-line-border);
+  color: var(--color-type-primary);
 
   &.disabled:not(.loading),
   &:disabled:not(.loading) {
-    border-color: rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.3);
+    border-color: var(--color-bg-state-disabled);
+    color: var(--color-type-disable);
     cursor: not-allowed;
   }
 
   &:active {
-    background: rgba(37, 99, 235, 0.1);
+    background: var(--color-overlay-neutral-hover);
   }
 }
 
 // Danger with glow
 .danger {
-  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  background: linear-gradient(135deg, var(--color-danger-default) 0%, var(--color-danger-pressed) 100%);
   color: white;
-  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.25);
+  box-shadow: 0 4px 15px rgba(var(--aico-danger-rgb, 239, 68, 68), 0.25);
 
   &.disabled:not(.loading),
   &:disabled:not(.loading) {
-    background: rgba(255, 255, 255, 0.08);
-    color: rgba(255, 255, 255, 0.4);
+    background: var(--color-bg-state-disabled);
+    color: var(--color-type-disable);
     box-shadow: none;
   }
 
@@ -121,7 +121,7 @@
   }
 
   &.loadingActive {
-    background: linear-gradient(135deg, #f87171 0%, #ef4444 100%);
+    background: linear-gradient(135deg, var(--color-danger-hover) 0%, var(--color-danger-default) 100%);
   }
 }
 
@@ -133,33 +133,33 @@
 
   .primary {
     &:focus-visible {
-      outline: 2px solid #667eea;
+      outline: 2px solid var(--color-brand-default);
       outline-offset: 2px;
     }
 
     // 3D Hover lift effect
     &:not(:disabled):not(:active):not(.loadingActive):hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+      box-shadow: 0 10px 25px rgba(var(--aico-primary-rgb), 0.4);
     }
   }
 
   .secondary {
     &:focus-visible {
-      outline: 2px solid #2563eb;
+      outline: 2px solid var(--color-brand-default);
       outline-offset: 2px;
     }
 
     &:not(:disabled):not(:active):hover {
-      background: #2563eb;
+      background: var(--color-brand-default);
       color: white;
-      border-color: #2563eb;
+      border-color: var(--color-brand-default);
     }
   }
 
   .danger {
     &:focus-visible {
-      outline: 2px solid #ef4444;
+      outline: 2px solid var(--color-danger-default);
       outline-offset: 2px;
     }
 

@@ -12,8 +12,8 @@ body {
   margin: 0;
   padding: 0;
   word-break: break-word;
-  background: var(--aico-body-bg, #0a0d12);
-  color: var(--aico-text-primary, #ffffff);
+  background: var(--color-bg-body);
+  color: var(--color-type-primary);
   font: var(--font-body-2);
 
   // Ensure smooth animations
@@ -50,15 +50,16 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-input[type='number'] {
+input {
+  appearance: none;
   -moz-appearance: textfield;
 }
 
 :focus-visible {
-  outline: 2px solid #2563eb;
+  outline: 2px solid var(--color-brand-default);
   outline-offset: 2px;
 }
 
 ::selection {
-  background: rgba(37, 99, 235, 0.3);
+  background: var(--color-overlay-brand-pressed);
 }
