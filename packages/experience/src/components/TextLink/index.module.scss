@@ -4,43 +4,43 @@
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   display: inline-flex;
+  align-items: center;
   justify-content: center;
+  transition: color var(--aico-motion-standard, 0.15s ease);
+  text-decoration: none;
 
-  > svg {
+  >svg {
     margin-inline-end: _.unit(2);
   }
 
   &.primary {
     font: var(--font-label-2);
     color: var(--color-brand-default);
-    text-decoration: none;
 
     &:active {
       color: var(--color-brand-hover);
     }
   }
 
-
   &.secondary {
-    color: var(--color-type-primary);
+    color: var(--aico-text-primary, #f8fafc);
     font: inherit;
-    text-decoration: none;
   }
 }
-
 
 :global(body.desktop) {
   .link {
     &.primary:hover {
       color: var(--color-brand-hover);
+      text-decoration: underline;
     }
 
     &.primary:focus-visible {
-      outline: _.border(var(--color-overlay-brand-focused));
+      outline: 2px solid var(--color-brand-default);
+      outline-offset: 2px;
     }
 
-    &.secondary:hover,
-    &.secondary:active {
+    &.secondary:hover {
       color: var(--color-brand-default);
     }
   }

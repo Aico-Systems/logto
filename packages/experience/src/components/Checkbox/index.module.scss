@@ -4,22 +4,24 @@
   position: relative;
   display: inline-flex;
   align-items: center;
+  cursor: pointer;
 
   .icon {
     margin-inline-end: _.unit(2);
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
+    transition: transform var(--aico-motion-standard, 0.15s ease);
 
     &.small {
-      width: 16px;
-      height: 16px;
+      width: 18px;
+      height: 18px;
     }
 
-    > * {
+    >* {
       display: none;
 
       &:nth-child(1) {
-        color: var(--color-type-secondary);
+        color: var(--aico-text-secondary, #94a3b8);
       }
 
       &:nth-child(2) {
@@ -30,27 +32,35 @@
 
   input {
     position: absolute;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     inset-inline-start: 0;
     top: 0;
     margin: 0;
-    opacity: 0%;
+    opacity: 0;
+    cursor: pointer;
   }
 
-  input:not(:checked):not(:disabled) ~ .icon > *:nth-child(1),
-  input:checked:not(:disabled) ~ .icon > *:nth-child(2),
-  input:checked:not(:disabled) ~ .icon > *:nth-child(3) {
+  input:not(:checked):not(:disabled)~.icon>*:nth-child(1),
+  input:checked:not(:disabled)~.icon>*:nth-child(2),
+  input:checked:not(:disabled)~.icon>*:nth-child(3) {
     display: block;
   }
 }
 
 :global(body.mobile) {
   .checkbox {
+
     .icon,
     .icon.small {
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
     }
+  }
+}
+
+:global(body.desktop) {
+  .checkbox:hover .icon {
+    transform: scale(1.05);
   }
 }

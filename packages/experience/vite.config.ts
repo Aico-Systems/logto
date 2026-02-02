@@ -6,8 +6,11 @@ import svgr from 'vite-plugin-svgr';
 
 import { defaultConfig, manualChunks } from '../../vite.shared.config';
 
+const devHost = process.env.VITE_DEV_HOST || undefined;
+
 const buildConfig = (mode: string): UserConfig => ({
   server: {
+    host: devHost,
     port: 5001,
     hmr: {
       port: 6001,

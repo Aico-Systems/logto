@@ -36,17 +36,19 @@ const LandingPageLayout = ({ children, title, titleInterpolation, thirdPartyBran
 
   return (
     <FirstScreenLayout pageMeta={{ titleKey: title, titleKeyInterpolation: titleInterpolation }}>
-      <BrandingHeader
-        className={classNames(styles.header, layoutClassNames.brandingHeader)}
-        headline={title}
-        headlineInterpolation={titleInterpolation}
-        logo={getBrandingLogoUrl({ theme, branding, isDarkModeEnabled })}
-        thirdPartyLogo={
-          thirdPartyBranding &&
-          getBrandingLogoUrl({ theme, branding: thirdPartyBranding, isDarkModeEnabled })
-        }
-      />
-      {children}
+      <div className={styles.card}>
+        <BrandingHeader
+          className={classNames(styles.header, layoutClassNames.brandingHeader)}
+          headline={title}
+          headlineInterpolation={titleInterpolation}
+          logo={getBrandingLogoUrl({ theme, branding, isDarkModeEnabled })}
+          thirdPartyLogo={
+            thirdPartyBranding &&
+            getBrandingLogoUrl({ theme, branding: thirdPartyBranding, isDarkModeEnabled })
+          }
+        />
+        {children}
+      </div>
     </FirstScreenLayout>
   );
 };

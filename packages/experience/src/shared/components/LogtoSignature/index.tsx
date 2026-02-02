@@ -7,10 +7,8 @@ import LogtoLogoShadow from '@/shared/assets/icons/logto-logo-shadow.svg?react';
 
 import styles from './index.module.scss';
 
-const logtoUrl = `https://logto.io/?${new URLSearchParams({
-  utm_source: 'sign_in',
-  utm_medium: 'powered_by',
-}).toString()}`;
+const brandName = 'AICO';
+const brandUrl = '/';
 
 const guardStyleSelector = 'style[data-logto-signature-guard="true"]';
 
@@ -86,99 +84,20 @@ const LogtoSignature = ({ className, theme }: Props) => {
   const anchorRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
-    if (typeof document === 'undefined') {
-      return;
-    }
-
-    const { current: container } = containerRef;
-    const { current: anchor } = anchorRef;
-
-    if (!anchor) {
-      return;
-    }
-
-    const ensureGuardStyle = (): { created: boolean; element: HTMLStyleElement } => {
-      const existing = document.head.querySelector<HTMLStyleElement>(guardStyleSelector);
-
-      if (existing) {
-        return { created: false, element: existing };
-      }
-
-      const createdElement = document.createElement('style');
-      Reflect.set(createdElement.dataset, 'logtoSignatureGuard', 'true');
-      createdElement.append(signatureGuardStyle);
-      document.head.append(createdElement);
-
-      return { created: true, element: createdElement };
-    };
-
-    const { created, element: guardStyleElement } = ensureGuardStyle();
-
-    const enforceIntegrity = () => {
-      if (container) {
-        container.removeAttribute('hidden');
-        container.style.setProperty('display', 'block', 'important');
-        container.style.setProperty('visibility', 'visible', 'important');
-        container.style.setProperty('opacity', '1', 'important');
-      }
-
-      anchor.removeAttribute('hidden');
-
-      if (styles.signature && !anchor.classList.contains(styles.signature)) {
-        anchor.classList.add(styles.signature);
-      }
-
-      anchor.style.removeProperty('display');
-      anchor.style.removeProperty('visibility');
-      anchor.style.removeProperty('opacity');
-      anchor.style.removeProperty('position');
-      anchor.style.removeProperty('left');
-      anchor.style.removeProperty('right');
-      anchor.style.removeProperty('top');
-      anchor.style.removeProperty('bottom');
-      anchor.style.removeProperty('transform');
-    };
-
-    enforceIntegrity();
-
-    const observer = new MutationObserver(() => {
-      enforceIntegrity();
-    });
-
-    observer.observe(anchor, { attributes: true, attributeFilter: ['class', 'style', 'hidden'] });
-
-    if (container) {
-      observer.observe(container, {
-        attributes: true,
-        attributeFilter: ['class', 'style', 'hidden'],
-      });
-    }
-
-    const intervalId = window.setInterval(enforceIntegrity, 2000);
-
-    return () => {
-      observer.disconnect();
-      window.clearInterval(intervalId);
-
-      if (created) {
-        guardStyleElement.remove();
-      }
-    };
+    // Tamper protection removed for local customization
   }, []);
 
   return (
     <div ref={containerRef} className={className} data-logto-signature-container="secured">
       <a
         ref={anchorRef}
-        aria-label="Powered By Logto"
+        aria-label={brandName}
         className={styles.signature}
         data-logto-signature="secured"
-        href={logtoUrl.toString()}
-        rel="noopener"
-        target="_blank"
+        href={brandUrl}
       >
         <span data-logto-signature-text className={styles.text}>
-          Powered by
+          {brandName}
         </span>
         <LogtoLogoShadow data-logto-signature-icon="static" className={styles.staticIcon} />
         <LogtoLogo data-logto-signature-icon="highlight" className={styles.highlightIcon} />

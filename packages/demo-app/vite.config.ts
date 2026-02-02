@@ -4,9 +4,12 @@ import viteCompression from 'vite-plugin-compression';
 
 import { defaultConfig } from '../../vite.shared.config';
 
+const devHost = process.env.VITE_DEV_HOST || undefined;
+
 const buildConfig = (mode: string): UserConfig => ({
   base: '/demo-app',
   server: {
+    host: devHost,
     port: 5003,
     hmr: {
       port: 6003,

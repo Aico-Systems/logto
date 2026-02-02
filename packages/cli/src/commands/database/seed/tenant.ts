@@ -186,3 +186,88 @@ export const seedLegacyManagementApiUserRole = async (
     );
   `);
 };
+
+/**
+ * Automatically seed the Management M2M application if environment variables are provided.
+ */
+export const seedManagementM2MApplication = async (
+  connection: DatabaseTransactionConnection,
+  tenantId: string
+) => {
+  const appId = process.env.LOGTO_MANAGEMENT_APP_ID;
+  const appSecret = process.env.LOGTO_MANAGEMENT_APP_SECRET;
+
+  if (!appId || !appSecret) {
+    consoleLog.info('Skipping Management M2M App seeding (env vars not set)');
+    return;
+  }
+
+  // Create the M2M application
+  const app = {
+    tenantId,
+    id: appId,
+    name: 'Management API',
+    secret: appSecret,
+    description: 'Auto-seeded Management API M2M application',
+    type: 'MachineToMachine',
+    oidcClientMetadata: {
+      redirectUris: [],
+      postLogoutRedirectUris: [],
+    },
+    customClientMetadata: {},
+    isThirdParty: false,
+    createdAt: Date.now(),
+    customData: {},
+  };
+
+  try {
+    // Check if app exists
+    const existing = await connection.maybeOne(sql`
+      select id from applications where id = ${appId}
+    `);
+
+    if (existing) {
+      consoleLog.info('Management M2M App already exists, updating secret...');
+      await connection.query(sql`
+        update applications set secret = ${appSecret} where id = ${appId}
+      `);
+    } else {
+      await connection.query(insertInto(app, 'applications'));
+      consoleLog.succeed('Created Management M2M App');
+    }
+
+    // Assign "Logto Management API access" role
+    // This role is created by seedPreConfiguredManagementApiAccessRole
+    const roleName = 'Logto Management API access';
+
+    const role = await connection.maybeOne<{ id: string }>(sql`
+      select id from roles where name = ${roleName} and tenant_id = ${tenantId}
+    `);
+
+    if (!role) {
+      consoleLog.warn(`Role "${roleName}" not found, skipping assignment`);
+      return;
+    }
+
+    const applicationRole = {
+      id: generateStandardId(),
+      tenantId,
+      applicationId: appId,
+      roleId: role.id,
+    };
+
+    // Check if assignment exists
+    const existingAssignment = await connection.maybeOne(sql`
+      select id from applications_roles 
+      where application_id = ${appId} and role_id = ${role.id}
+    `);
+
+    if (!existingAssignment) {
+      await connection.query(insertInto(applicationRole, 'applications_roles'));
+      consoleLog.succeed('Assigned Management API access role to M2M App');
+    }
+
+  } catch (error) {
+    consoleLog.error('Failed to seed Management M2M App:', error);
+  }
+};

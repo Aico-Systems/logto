@@ -1,31 +1,32 @@
 @use '@/shared/scss/underscore' as _;
 
 .item {
-  padding: _.unit(2);
-  border-radius: 6px;
+  padding: _.unit(2) _.unit(3);
+  border-radius: var(--aico-radius-xs, 2px);
   font: var(--font-body-2);
   cursor: pointer;
   display: flex;
   align-items: center;
   overflow: hidden;
-  gap: _.unit(4);
-  border: 1px solid transparent;
+  gap: _.unit(3);
+  transition: background var(--aico-motion-standard, 0.1s ease);
 
   &:hover {
-    background: var(--color-overlay-neutral-hover);
+    background: rgba(255, 255, 255, 0.06);
   }
 
   &.danger {
-    color: var(--color-overlay-danger-hover);
+    color: #f87171;
   }
 
   &:focus-visible {
-    border: solid 1px var(--color-brand-default);
+    background: rgba(255, 255, 255, 0.06);
     outline: none;
   }
 
   .icon {
     display: flex;
     align-items: center;
+    color: var(--aico-text-secondary, #a1a1aa);
   }
 }

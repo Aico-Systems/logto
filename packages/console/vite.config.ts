@@ -15,10 +15,13 @@ import { defaultConfig, manualChunks } from '../../vite.shared.config';
 // @see {@link https://vitejs.dev/config/shared-options.html#envprefix}
 dotenv.config({ path: await findUp('.env', {}) });
 
+const devHost = process.env.VITE_DEV_HOST || undefined;
+
 const buildConfig = (mode: string): UserConfig => ({
   base: `${process.env.CONSOLE_PUBLIC_URL ?? '/console'}`,
   envDir: '../../',
   server: {
+    host: devHost,
     port: 5002,
     hmr: {
       port: 6002,

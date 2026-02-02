@@ -8,6 +8,8 @@ import svgr from 'vite-plugin-svgr';
 
 import { defaultConfig } from '../../vite.shared.config';
 
+const devHost = process.env.VITE_DEV_HOST || undefined;
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const experienceSrcPath = path.resolve(__dirname, '../experience/src');
 const accountCenterSrcPath = path.resolve(__dirname, './src');
@@ -32,6 +34,7 @@ const experienceAliasPlugin = (): Plugin => ({
 const buildConfig = (mode: string): UserConfig => ({
   base: '/account',
   server: {
+    host: devHost,
     port: 5004,
     hmr: {
       port: 6004,

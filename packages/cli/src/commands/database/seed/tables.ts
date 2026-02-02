@@ -53,6 +53,7 @@ import {
   seedAdminData,
   seedLegacyManagementApiUserRole,
   seedManagementApiProxyApplications,
+  seedManagementM2MApplication,
 } from './tenant.js';
 
 const getExplicitOrder = (query: string) => {
@@ -163,6 +164,9 @@ export const seedTables = async (
    * Called after the default tenant's Management API resource and the related all scope have been created.
    */
   await seedPreConfiguredManagementApiAccessRole(connection, defaultTenantId);
+
+  // Auto-seed Management M2M App if env vars are present
+  await seedManagementM2MApplication(connection, defaultTenantId);
 
   await createTenant(connection, adminTenantId);
   await seedOidcConfigs(connection, adminTenantId);

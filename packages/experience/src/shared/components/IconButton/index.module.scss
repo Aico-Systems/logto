@@ -3,27 +3,49 @@
 .iconButton {
   border: none;
   outline: none;
-  background: none;
-  border-color: transparent;
-  border-radius: 6px;
-  padding: _.unit(1);
+  background: transparent;
+  border-radius: var(--blueprint-radius-sm, 6px);
+  padding: 8px;
   @include _.flex-column;
   cursor: pointer;
+  transition: background var(--aico-motion-standard, 0.15s ease);
 
-  > svg {
-    color: var(--color-type-secondary);
+  >svg {
+    width: 18px;
+    height: 18px;
+    color: var(--aico-text-secondary, var(--aico-grey-400));
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+
+    >svg {
+      color: var(--aico-text-primary, #ffffff);
+    }
   }
 
   &:active {
-    background: var(--color-overlay-neutral-pressed);
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-brand-default);
+    outline-offset: 2px;
   }
 }
 
-
-:global(body.desktop) {
+:global(body.light) {
   .iconButton {
-    &:hover:not(:active) {
-      background: var(--color-overlay-neutral-hover);
+    &:hover {
+      background: rgba(0, 0, 0, 0.06);
+
+      >svg {
+        color: var(--aico-grey-900);
+      }
+    }
+
+    &:active {
+      background: rgba(0, 0, 0, 0.1);
     }
   }
 }

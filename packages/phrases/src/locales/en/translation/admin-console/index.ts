@@ -52,7 +52,7 @@ import webhooks from './webhooks.js';
 import welcome from './welcome.js';
 
 const admin_console = {
-  title: 'Admin Console',
+  title: 'AICO Console',
   admin_user: 'Admin',
   system_app: 'System',
   menu,

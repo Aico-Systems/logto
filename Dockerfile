@@ -45,3 +45,19 @@ RUN mkdir -p /etc/logto/packages/cli/alteration-scripts && chmod g+w /etc/logto/
 EXPOSE 3001
 ENTRYPOINT ["npm", "run"]
 CMD ["start"]
+
+###### [STAGE] Dev ######
+FROM node:22-alpine as dev
+
+# Toolchain + pnpm for Logto dev (Vite + native deps)
+RUN apk add --no-cache \
+    bash \
+    g++ \
+    git \
+    make \
+    python3 \
+    rsync
+
+RUN corepack enable && corepack prepare pnpm@10.0.0 --activate
+
+WORKDIR /etc/logto

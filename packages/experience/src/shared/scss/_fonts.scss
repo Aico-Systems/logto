@@ -1,17 +1,14 @@
 /* Typography Foundation */
 
-$font-family:
-  -apple-system,
-  system-ui,
-  'BlinkMacSystemFont',
+$font-family: -apple-system,
+  BlinkMacSystemFont,
   'Segoe UI',
   'Roboto',
-  'Arial',
   sans-serif;
 
 @mixin fonts {
-  --font-headline-1: 600 28px/32px #{$font-family};
-  --font-headline-2: 600 24px/32px #{$font-family};
+  --font-headline-1: 700 28px/40px #{$font-family}; // Relaxed for large titles
+  --font-headline-2: 700 24px/34px #{$font-family};
 
   --font-title-1: 600 20px/28px #{$font-family};
   --font-title-2: 600 18px/26px #{$font-family};

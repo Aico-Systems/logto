@@ -1,66 +1,64 @@
 @use '@/shared/scss/underscore' as _;
 
-/* Main Layout */
+/* Main Layout - Landing Page Vibes */
 .viewBox {
   position: absolute;
   inset: 0;
   overflow: auto;
+  background: var(--aico-body-bg);
+  color: var(--aico-text-primary);
 }
 
 .container {
   min-height: 100%;
   @include _.flex_column(center, center);
+  padding: 24px;
 }
 
 .main {
+  width: 100%;
+  max-width: 420px;
   @include _.flex_column;
 }
 
 :global(body.mobile) {
   .container {
+    padding: 20px;
     padding-bottom: env(safe-area-inset-bottom);
   }
 
   .main {
-    flex: 1;
-    align-self: stretch;
-    padding: _.unit(4) _.unit(5);
-    position: relative;
-    background: var(--color-bg-body);
+    max-width: 100%;
   }
 
   .signature {
-    margin: _.unit(10) 0 _.unit(2);
+    display: none !important;
   }
 }
 
 :global(body.desktop) {
-  .container {
-    padding: _.unit(5);
-  }
-
   .main {
-    width: 540px;
-    min-height: 540px;
-    position: relative;
-    padding: _.unit(6);
-    border-radius: 16px;
-    background: var(--color-bg-float);
-    box-shadow: var(--color-shadow-2);
+    padding: 40px 36px;
+    border-radius: var(--card-radius, 16px);
+    background: var(--aico-card-bg);
+    border: var(--aico-card-border);
+    box-shadow: var(--shadow-card);
+    animation: fadeIn 0.2s ease forwards;
   }
 
-  .signature {
-    position: absolute;
-    bottom: 0;
-    transform: translateY(calc(100% + _.unit(7)));
-    // Have to use padding instead of margin. Overflow margin spacing will be ignored by the browser.
-    padding-bottom: _.unit(7);
-  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
 
-  @media only screen and (max-width: 580px) {
-    .main {
-      align-self: stretch;
-      width: auto;
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
+}
+
+.signature {
+  display: none !important;
 }

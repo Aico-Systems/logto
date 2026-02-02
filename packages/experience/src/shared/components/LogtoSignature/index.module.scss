@@ -18,6 +18,13 @@
     display: none;
   }
 
+  .staticIcon,
+  .highlightIcon {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 auto;
+  }
+
   &:hover,
   &:active {
     opacity: 100%;

@@ -27,15 +27,17 @@ const BrandingHeader = ({
 
   return (
     <div className={classNames(styles.container, className)}>
-      {shouldShowLogo && (
-        <div className={styles.logoWrapper}>
-          {thirdPartyLogo && (
-            <img className={styles.logo} alt="third party logo" src={thirdPartyLogo} />
-          )}
-          {shouldConnectSvg && <ConnectIcon className={styles.connectIcon} />}
-          {logo && <img className={styles.logo} alt="app logo" src={logo} />}
-        </div>
-      )}
+      <div className={styles.iconContainer}>
+        {shouldShowLogo && (
+          <div className={styles.logoWrapper}>
+            {thirdPartyLogo && (
+              <img className={styles.logo} alt="third party logo" src={thirdPartyLogo} />
+            )}
+            {shouldConnectSvg && <ConnectIcon className={styles.connectIcon} />}
+            {logo && <img className={styles.logo} alt="app logo" src={logo} />}
+          </div>
+        )}
+      </div>
 
       {headline && (
         <div className={styles.headline}>

@@ -1,56 +1,58 @@
 @use '@/shared/scss/underscore' as _;
 
-$logo-height: 40px;
+$logo-height: 56px;
 
 .container {
   width: 100%;
   @include _.flex-column;
+  align-items: center;
+}
+
+.iconContainer {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
 }
 
 .logoWrapper {
   @include _.flex-row;
+  align-items: center;
+  justify-content: center;
 }
 
 .connectIcon {
-  color: var(--color-neutral-variant-80);
-  margin: 0 _.unit(3);
+  color: var(--aico-text-secondary, #a1a1aa);
+  margin: 0 12px;
 }
 
 .logo {
   height: $logo-height;
   width: auto;
-  @include _.image-align-center;
 }
 
 .headline {
   flex-shrink: 0;
   text-align: center;
-  color: var(--color-type-primary);
-  @include _.multi-line-ellipsis(2);
+  font: var(--font-headline-2);
+  color: var(--aico-text-primary, #fafafa);
+  margin: 0;
+  font-weight: 600;
 }
 
 :global(body.mobile) {
-  .container {
-    height: 15vh;
-    min-height: 92px;
-    max-height: 148px;
-  }
-
-  .logoWrapper:not(:last-child) {
-    margin-bottom: _.unit(2);
+  .logoWrapper {
+    margin-bottom: 8px;
   }
 
   .headline {
-    font: var(--font-title-1);
+    font-size: 22px;
   }
 }
 
 :global(body.desktop) {
-  .logoWrapper:not(:last-child) {
-    margin-bottom: _.unit(3);
-  }
-
   .headline {
-    font: var(--font-title-2);
+    font-size: 22px;
   }
 }

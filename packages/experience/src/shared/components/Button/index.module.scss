@@ -5,20 +5,25 @@
   justify-content: center;
   align-items: center;
   height: 44px;
-  padding: 0 _.unit(4);
-  border-radius: var(--radius);
+  padding: 0 24px;
+  border-radius: var(--field-radius, 8px);
   cursor: pointer;
   font: var(--font-label-1);
-  -webkit-appearance: none;
+  font-weight: 500;
   appearance: none;
   -webkit-tap-highlight-color: transparent;
-  transition: background 0.2s ease-in-out;
+  transition:
+    background-color var(--aico-motion-standard, 0.15s ease),
+    box-shadow var(--aico-motion-standard, 0.15s ease);
   user-select: none;
+  border: none;
+  position: relative;
   overflow: hidden;
 
   .content {
     position: relative;
-    transition: padding-inline-start 0.2s ease;
+    transition: padding-inline-start 0.15s ease;
+    z-index: 2;
 
     .icon {
       font-size: 0;
@@ -26,16 +31,15 @@
       position: absolute;
       pointer-events: none;
       inset-inline-start: 0;
-      opacity: 0%;
-      transition: opacity 0.2s ease;
+      opacity: 0;
+      transition: opacity 0.15s ease;
     }
 
     &.iconVisible {
       padding-inline-start: _.unit(7);
 
       .icon {
-        inset-inline-start: 0;
-        opacity: 100%;
+        opacity: 1;
       }
     }
   }
@@ -47,96 +51,107 @@
 
 .small {
   min-width: 85px;
+  height: 36px;
+  padding: 0 16px;
+  font: var(--font-label-2);
 }
 
+// Primary - AICO Blue
 .primary {
-  border: none;
-  background: var(--color-brand-default);
+  background: #2563eb; // AICO Blue
   color: var(--color-static-white);
 
   &.disabled:not(.loading),
   &:disabled:not(.loading) {
-    background: var(--color-bg-state-disabled);
-    color: var(--color-type-disable);
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.4);
+    cursor: not-allowed;
   }
 
   &:active {
-    background: var(--color-brand-pressed);
+    background: #1d4ed8; // Darker blue
   }
 
   &.loadingActive {
-    background-color: var(--color-brand-loading);
+    background: #3b82f6; // Lighter blue
   }
 }
 
+// Secondary - Outlined
 .secondary {
-  border: _.border(var(--color-line-border));
   background: transparent;
-  color: var(--color-type-primary);
+  border: 1px solid var(--field-border);
+  color: var(--aico-text-primary);
 
   &.disabled:not(.loading),
   &:disabled:not(.loading) {
-    border-color: var(--color-type-disable);
-    color: var(--color-type-disable);
+    border-color: var(--aico-grey-700);
+    color: var(--aico-grey-500);
+    cursor: not-allowed;
   }
 
   &:active {
-    background: var(--color-overlay-neutral-pressed);
+    background: rgba(255, 255, 255, 0.04);
   }
 }
 
+// Danger
 .danger {
-  border: none;
-  background: var(--color-danger-default);
+  background: var(--aico-danger, #ef4444);
   color: var(--color-static-white);
 
   &.disabled:not(.loading),
   &:disabled:not(.loading) {
-    background: var(--color-bg-state-disabled);
-    color: var(--color-type-disable);
+    background: var(--aico-grey-700);
+    color: var(--aico-grey-500);
   }
 
   &:active {
-    background: var(--color-danger-pressed);
+    background: rgb(185, 28, 28);
   }
 
   &.loadingActive {
-    background-color: var(--color-danger-hover);
+    background: rgb(248, 113, 113);
   }
 }
 
 :global(body.desktop) {
   .button {
     font: var(--font-label-2);
+    height: 40px;
   }
 
   .primary {
     &:focus-visible {
-      outline: 3px solid var(--color-overlay-brand-focused);
+      outline: 2px solid #2563eb;
+      outline-offset: 2px;
     }
 
     &:not(:disabled):not(:active):not(.loadingActive):hover {
-      background: var(--color-brand-hover);
+      background: #1d4ed8; // AICO Blue darker
     }
   }
 
   .secondary {
     &:focus-visible {
-      outline: 3px solid var(--color-overlay-neutral-focused);
+      outline: 2px solid var(--color-brand-default);
+      outline-offset: 2px;
     }
 
-    &:not(:disabled):not(:active):not(.loadingActive):hover {
-      background: var(--color-overlay-neutral-hover);
+    &:not(:disabled):not(:active):hover {
+      background: var(--field-bg-hover);
+      border-color: var(--field-border-hover);
     }
   }
 
   .danger {
     &:focus-visible {
-      outline: 3px solid var(--color-overlay-danger-focused);
+      outline: 2px solid var(--aico-danger);
+      outline-offset: 2px;
     }
 
     &:not(:disabled):not(:active):not(.loadingActive):hover {
-      background: var(--color-danger-hover);
+      background: rgb(220, 38, 38);
     }
   }
 }

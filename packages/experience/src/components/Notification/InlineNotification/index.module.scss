@@ -3,10 +3,10 @@
 .notification {
   padding: _.unit(3) _.unit(4);
   font: var(--font-body-2);
-  color: var(--color-type-primary);
+  color: var(--aico-text-primary, #fafafa);
   margin: 0 auto _.unit(2);
-  background: var(--color-alert-99);
-  border: _.border(var(--color-alert-70));
-  border-radius: var(--radius);
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  border-radius: var(--aico-radius-sm, 4px);
   @include _.flex_row;
 }
