@@ -15,10 +15,6 @@
         margin-inline-end: _.unit(4);
       }
 
-      &:nth-child(1) {
-        color: var(--color-type-secondary);
-      }
-
       &:last-child {
         margin-inline-start: _.unit(4);
       }

@@ -13,25 +13,25 @@
   >svg {
     width: 20px;
     height: 20px;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--color-type-secondary);
     transition: color 0.2s ease;
   }
 
   &:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: var(--color-overlay-neutral-hover);
 
     >svg {
-      color: rgba(255, 255, 255, 0.9);
+      color: var(--color-type-primary);
     }
   }
 
   &:active {
-    background: rgba(255, 255, 255, 0.12);
+    background: var(--color-overlay-neutral-pressed);
     transform: scale(0.95);
   }
 
   &:focus-visible {
-    outline: 2px solid #2563eb;
+    outline: 2px solid var(--color-brand-default);
     outline-offset: 2px;
   }
 }

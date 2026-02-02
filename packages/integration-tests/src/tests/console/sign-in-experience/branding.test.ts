@@ -4,7 +4,7 @@ import { expectNavigation, appendPathname, waitFor } from '#src/utils.js';
 
 import { waitForFormCard, expectToSelectColor, expectToSaveSignInExperience } from './helpers.js';
 
-const defaultPrimaryColor = '#6139F6';
+const defaultPrimaryColor = '#2563EB';
 const testPrimaryColor = '#5B4D8E';
 
 await page.setViewport({ width: 1920, height: 1080 });

@@ -165,7 +165,7 @@
 
     &:not(:disabled):not(:active):not(.loadingActive):hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(239, 68, 68, 0.4);
+      box-shadow: 0 10px 25px rgba(var(--aico-danger-rgb), 0.4);
     }
   }
 }

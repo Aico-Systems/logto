@@ -21,11 +21,11 @@
       display: none;
 
       &:nth-child(1) {
-        color: var(--aico-text-secondary, #94a3b8);
+        color: var(--color-type-secondary);
       }
 
       &:nth-child(2) {
-        color: var(--color-brand-default);
+        color: var(--color-type-primary);
       }
     }
   }

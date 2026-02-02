@@ -30,9 +30,13 @@
   --gradient-primary: linear-gradient(135deg, var(--aico-primary) 0%, #3b82f6 100%);
 
   // Semantic
-  --aico-success: rgb(34, 197, 94);
-  --aico-warning: rgb(245, 158, 11);
-  --aico-danger: rgb(239, 68, 68);
+  --aico-success-rgb: 34, 197, 94;
+  --aico-warning-rgb: 245, 158, 11;
+  --aico-danger-rgb: 239, 68, 68;
+
+  --aico-success: rgb(var(--aico-success-rgb));
+  --aico-warning: rgb(var(--aico-warning-rgb));
+  --aico-danger: rgb(var(--aico-danger-rgb));
 
   // Radii
   --field-radius: 8px;
