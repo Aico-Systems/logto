@@ -4,29 +4,23 @@
   @include _.flex-row;
   justify-content: center;
   align-items: center;
-  height: 44px;
-  padding: 0 28px;
-  border-radius: 8px;
+  height: 42px;
+  padding: 0 20px;
+  border-radius: var(--field-radius);
   cursor: pointer;
-  font: var(--font-label-1);
-  font-weight: 600;
-  font-size: 15px;
+  font: var(--font-label-2);
+  font-weight: 500;
   appearance: none;
   -webkit-tap-highlight-color: transparent;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    background 0.2s ease;
+  transition: all 0.15s ease;
   user-select: none;
   border: none;
   position: relative;
   overflow: hidden;
-  will-change: transform;
-  transform: translateZ(0); // GPU acceleration
 
   .content {
     position: relative;
-    transition: padding-inline-start 0.15s ease;
+    transition: padding-inline-start 0.1s ease;
     z-index: 2;
 
     .icon {
@@ -36,11 +30,11 @@
       pointer-events: none;
       inset-inline-start: 0;
       opacity: 0;
-      transition: opacity 0.15s ease;
+      transition: opacity 0.1s ease;
     }
 
     &.iconVisible {
-      padding-inline-start: _.unit(7);
+      padding-inline-start: _.unit(6);
 
       .icon {
         opacity: 1;
@@ -54,41 +48,39 @@
 }
 
 .small {
-  min-width: 85px;
-  height: 36px;
-  padding: 0 18px;
-  font: var(--font-label-2);
+  min-width: 80px;
+  height: 34px;
+  padding: 0 14px;
+  font: var(--font-label-3);
 }
 
-// Primary - Landing Page Gradient Style
+/* Primary - solid mint */
 .primary {
-  background: linear-gradient(135deg, var(--color-brand-default) 0%, var(--color-brand-hover) 100%);
-  color: white;
-  box-shadow: 0 4px 15px rgba(var(--aico-primary-rgb), 0.25);
+  background: var(--color-brand-default);
+  color: #000;
+  font-weight: 600;
 
   &.disabled:not(.loading),
   &:disabled:not(.loading) {
     background: var(--color-bg-state-disabled);
     color: var(--color-type-disable);
-    box-shadow: none;
     cursor: not-allowed;
-    transform: none;
   }
 
-  &:active {
-    transform: translateY(0) scale(0.98);
-    box-shadow: 0 2px 8px rgba(var(--aico-primary-rgb), 0.3);
+  &:active:not(:disabled) {
+    background: var(--color-brand-pressed);
+    transform: scale(0.98);
   }
 
   &.loadingActive {
-    background: linear-gradient(135deg, var(--color-brand-loading) 0%, var(--color-brand-default) 100%);
+    background: var(--color-brand-hover);
   }
 }
 
-// Secondary - Outlined with glow
+/* Secondary - outline */
 .secondary {
   background: transparent;
-  border: 2px solid var(--color-line-border);
+  border: 1px solid var(--color-line-border);
   color: var(--color-type-primary);
 
   &.disabled:not(.loading),
@@ -98,37 +90,36 @@
     cursor: not-allowed;
   }
 
-  &:active {
-    background: var(--color-overlay-neutral-hover);
+  &:active:not(:disabled) {
+    background: var(--color-overlay-neutral-pressed);
   }
 }
 
-// Danger with glow
+/* Danger */
 .danger {
-  background: linear-gradient(135deg, var(--color-danger-default) 0%, var(--color-danger-pressed) 100%);
-  color: white;
-  box-shadow: 0 4px 15px rgba(var(--aico-danger-rgb, 239, 68, 68), 0.25);
+  background: var(--color-danger-default);
+  color: #fff;
+  font-weight: 600;
 
   &.disabled:not(.loading),
   &:disabled:not(.loading) {
     background: var(--color-bg-state-disabled);
     color: var(--color-type-disable);
-    box-shadow: none;
   }
 
-  &:active {
-    transform: translateY(0) scale(0.98);
+  &:active:not(:disabled) {
+    background: var(--color-danger-pressed);
+    transform: scale(0.98);
   }
 
   &.loadingActive {
-    background: linear-gradient(135deg, var(--color-danger-hover) 0%, var(--color-danger-default) 100%);
+    background: var(--color-danger-hover);
   }
 }
 
 :global(body.desktop) {
   .button {
-    font: var(--font-label-2);
-    height: 42px;
+    height: 40px;
   }
 
   .primary {
@@ -137,10 +128,8 @@
       outline-offset: 2px;
     }
 
-    // 3D Hover lift effect
     &:not(:disabled):not(:active):not(.loadingActive):hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(var(--aico-primary-rgb), 0.4);
+      background: var(--color-brand-hover);
     }
   }
 
@@ -151,9 +140,8 @@
     }
 
     &:not(:disabled):not(:active):hover {
-      background: var(--color-brand-default);
-      color: white;
       border-color: var(--color-brand-default);
+      color: var(--color-brand-default);
     }
   }
 
@@ -164,8 +152,7 @@
     }
 
     &:not(:disabled):not(:active):not(.loadingActive):hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(var(--aico-danger-rgb), 0.4);
+      background: var(--color-danger-hover);
     }
   }
 }

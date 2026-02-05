@@ -1,7 +1,7 @@
 @use '@/shared/scss/underscore' as _;
 
 .header {
-  margin: _.unit(6) 0;
+  margin: _.unit(5) 0;
 }
 
 .description {
@@ -17,7 +17,7 @@
 }
 
 .link {
-  margin-top: _.unit(7);
+  margin-top: _.unit(6);
 }
 
 :global(body.mobile) {
@@ -28,6 +28,6 @@
 
 :global(body.desktop) {
   .title {
-    @include _.title_desktop;
+    @include _.title-desktop;
   }
 }

@@ -9,6 +9,7 @@ import { getBrandingLogoUrl } from '@/shared/utils/logo';
 import { layoutClassNames } from '@/utils/consts';
 
 import CustomContent from './CustomContent';
+import DotGrid from './DotGrid';
 import styles from './index.module.scss';
 
 const AppLayout = () => {
@@ -26,6 +27,8 @@ const AppLayout = () => {
 
   return (
     <div className={styles.viewBox}>
+      {/* Interactive dot grid background */}
+      {!isMobile && <DotGrid />}
       {/* Logo at top-left */}
       {logoUrl && (
         <div className={styles.topLogo}>

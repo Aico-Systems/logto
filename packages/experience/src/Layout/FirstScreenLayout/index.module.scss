@@ -12,14 +12,14 @@
 
 :global(body.desktop) {
   .wrapper {
-    padding: _.unit(6) 0;
+    padding: _.unit(4) 0;
   }
 
   .placeholderTop {
-    flex: 3;
+    flex: 2;
   }
 
   .placeholderBottom {
-    flex: 5;
+    flex: 3;
   }
 }

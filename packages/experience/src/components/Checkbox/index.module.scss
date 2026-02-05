@@ -8,16 +8,16 @@
 
   .icon {
     margin-inline-end: _.unit(2);
-    width: 20px;
-    height: 20px;
-    transition: transform var(--aico-motion-standard, 0.15s ease);
+    width: 18px;
+    height: 18px;
+    transition: color 0.1s ease;
 
     &.small {
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
     }
 
-    >* {
+    > * {
       display: none;
 
       &:nth-child(1) {
@@ -25,15 +25,15 @@
       }
 
       &:nth-child(2) {
-        color: var(--color-type-primary);
+        color: var(--color-brand-default);
       }
     }
   }
 
   input {
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     inset-inline-start: 0;
     top: 0;
     margin: 0;
@@ -41,16 +41,15 @@
     cursor: pointer;
   }
 
-  input:not(:checked):not(:disabled)~.icon>*:nth-child(1),
-  input:checked:not(:disabled)~.icon>*:nth-child(2),
-  input:checked:not(:disabled)~.icon>*:nth-child(3) {
+  input:not(:checked):not(:disabled) ~ .icon > *:nth-child(1),
+  input:checked:not(:disabled) ~ .icon > *:nth-child(2),
+  input:checked:not(:disabled) ~ .icon > *:nth-child(3) {
     display: block;
   }
 }
 
 :global(body.mobile) {
   .checkbox {
-
     .icon,
     .icon.small {
       width: 20px;
@@ -61,6 +60,6 @@
 
 :global(body.desktop) {
   .checkbox:hover .icon {
-    transform: scale(1.05);
+    opacity: 0.8;
   }
 }

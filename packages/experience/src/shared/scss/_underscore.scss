@@ -20,7 +20,7 @@
 }
 
 @mixin text-hint {
-  font: var(--font-body-2);
+  font: var(--font-body-3);
   color: var(--color-type-secondary);
 }
 
@@ -50,7 +50,6 @@
 }
 
 @mixin multi-line-ellipsis($line) {
-  // https://css-tricks.com/almanac/properties/l/line-clamp/
   /* stylelint-disable-next-line value-no-vendor-prefix */
   display: -webkit-box;
   -webkit-line-clamp: $line;

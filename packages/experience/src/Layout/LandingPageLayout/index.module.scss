@@ -1,5 +1,6 @@
 @use '@/shared/scss/underscore' as _;
 
+/* Clean Layout - No animations */
 .wrapper {
   @include _.full-page;
   @include _.flex-column;
@@ -7,48 +8,15 @@
   justify-content: center;
   @include _.full-width;
   position: relative;
-
-  // Animated aurora effect
-  &::before {
-    content: '';
-    position: fixed;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background:
-      conic-gradient(from 0deg at 50% 50%,
-        transparent 0deg,
-        rgba(var(--aico-primary-light-rgb), 0.08) 60deg,
-        transparent 120deg,
-        rgba(var(--aico-primary-rgb), 0.06) 180deg,
-        transparent 240deg,
-        rgba(var(--aico-primary-dark-rgb), 0.05) 300deg,
-        transparent 360deg);
-    animation: rotateAurora 30s linear infinite;
-    pointer-events: none;
-    z-index: 0;
-  }
-}
-
-@keyframes rotateAurora {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 .card {
   width: 100%;
-  max-width: 420px;
+  max-width: 360px;
   @include _.flex-column;
   position: relative;
-  z-index: 1;
 
-  >*:last-child {
+  > *:last-child {
     margin-bottom: 0;
   }
 }
@@ -69,6 +37,6 @@
 
 :global(body.desktop) {
   .header {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
 }

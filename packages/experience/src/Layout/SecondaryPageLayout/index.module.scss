@@ -10,7 +10,7 @@
 }
 
 .header {
-  margin-bottom: _.unit(6);
+  margin-bottom: _.unit(5);
 }
 
 .description {
@@ -28,13 +28,13 @@
   }
 
   .notification {
-    margin: 0 _.unit(-5) _.unit(6);
+    margin: 0 _.unit(-5) _.unit(5);
   }
 }
 
 :global(body.desktop) {
   .container {
-    margin-block: _.unit(12);
+    margin-block: _.unit(8);
   }
 
   .header {
@@ -42,12 +42,12 @@
   }
 
   .title {
-    @include _.title_desktop;
+    @include _.title-desktop;
   }
 
   .notification {
     @include _.full-width;
-    margin-top: _.unit(6);
-    border-radius: var(--radius);
+    margin-top: _.unit(5);
+    border-radius: var(--field-radius);
   }
 }

@@ -13,15 +13,16 @@
 
 .toast {
   margin: 0 auto;
-  padding: _.unit(2) _.unit(4);
-  max-width: 295px;
-  font: var(--font-body-1);
+  padding: _.unit(3) _.unit(4);
+  max-width: 320px;
+  font: var(--font-body-2);
   color: var(--color-static-white);
-  border-radius: var(--radius);
+  border-radius: var(--field-radius);
   background: var(--color-bg-toast);
   text-align: center;
   word-break: break-word;
   pointer-events: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
   &:focus-visible {
     outline: none;
@@ -32,7 +33,7 @@
 :global {
   .ReactModal__Content[role='toast'] {
     opacity: 0%;
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.15s ease;
   }
 
   .ReactModal__Content--after-open[role='toast'] {
@@ -47,7 +48,6 @@
 
 :global(body.desktop) {
   .toast {
-    padding: _.unit(3) _.unit(4);
-    box-shadow: var(--color-shadow-2);
+    padding: _.unit(3) _.unit(5);
   }
 }

@@ -6,7 +6,7 @@ body {
   @include colors.aico-tokens;
   @include fonts.fonts;
 
-  --radius: 8px;
+  --radius: 6px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
@@ -16,7 +16,6 @@ body {
   color: var(--color-type-primary);
   font: var(--font-body-2);
 
-  // Ensure smooth animations
   scroll-behavior: smooth;
 }
 
@@ -26,13 +25,13 @@ body {
   text-underline-offset: 2px;
 }
 
-// Smooth transitions on theme/color changes
-*,
-*::before,
-*::after {
-  transition-property: background-color, border-color, color, fill, stroke;
-  transition-duration: 0.15s;
-  transition-timing-function: ease;
+/* Minimal transitions - only for interactive elements */
+button,
+a,
+input,
+select,
+textarea {
+  transition: background-color 0.1s ease, border-color 0.1s ease, color 0.1s ease;
 }
 
 input {
@@ -40,7 +39,6 @@ input {
   outline: none;
   padding: 0;
   margin: 0;
-  // Disable transitions on input to prevent autofill flash
   transition: none !important;
 }
 
@@ -61,5 +59,5 @@ input {
 }
 
 ::selection {
-  background: var(--color-overlay-brand-pressed);
+  background: var(--color-overlay-brand-focused);
 }

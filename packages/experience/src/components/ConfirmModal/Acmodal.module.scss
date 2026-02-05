@@ -6,12 +6,12 @@
 
 .modal {
   position: absolute;
-  width: 600px;
+  width: 400px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   outline: none;
-  border-radius: 16px;
+  border-radius: var(--card-radius);
 
   &:focus-visible {
     outline: none;
@@ -20,7 +20,9 @@
 
 .container {
   background: var(--color-bg-float-overlay);
-  border-radius: 16px;
+  border-radius: var(--card-radius);
+  border: 1px solid var(--color-line-border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   padding: _.unit(6);
 
   &:focus-visible {
@@ -33,18 +35,25 @@
   color: var(--color-type-primary);
   @include _.flex-row;
   justify-content: space-between;
-  margin-bottom: _.unit(4);
+  margin-bottom: _.unit(3);
 
   svg {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
+    color: var(--color-type-secondary);
+    cursor: pointer;
+    transition: color 0.1s ease;
+
+    &:hover {
+      color: var(--color-type-primary);
+    }
   }
 }
 
 .content {
   font: var(--font-body-2);
-  color: var(--color-type-primary);
-  margin-bottom: _.unit(6);
+  color: var(--color-type-secondary);
+  margin-bottom: _.unit(5);
 }
 
 .footer {
@@ -56,7 +65,7 @@
   }
 
   > button:first-child {
-    margin-inline-end: _.unit(3);
+    margin-inline-end: _.unit(2);
   }
 }
 

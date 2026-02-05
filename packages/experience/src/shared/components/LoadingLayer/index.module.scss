@@ -6,9 +6,9 @@
 }
 
 .container {
-  width: 60px;
-  height: 60px;
-  border-radius: var(--radius);
+  width: 48px;
+  height: 48px;
+  border-radius: var(--field-radius);
   background-color: var(--color-bg-toast);
   @include _.flex-column;
 

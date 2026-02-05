@@ -1,22 +1,23 @@
 @use '@/shared/scss/underscore' as _;
 
-$logo-height: 52px;
+$logo-height: 40px;
 
 .container {
   width: 100%;
   @include _.flex-column;
   align-items: center;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .iconContainer {
-  display: none; // Logo now shown at top-left of screen via AppLayout
+  display: none;
 }
 
 .logoWrapper {
   @include _.flex-row;
   align-items: center;
   justify-content: center;
+  margin-bottom: 16px;
 }
 
 .connectIcon {
@@ -27,53 +28,33 @@ $logo-height: 52px;
 .logo {
   height: $logo-height;
   width: auto;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  filter: drop-shadow(0 8px 16px var(--color-brand-default));
-
-  &:hover {
-    transform: scale(1.05) translateY(-2px);
-    filter: drop-shadow(0 12px 24px var(--color-brand-default));
-  }
 }
 
 .headline {
   flex-shrink: 0;
   text-align: center;
   margin: 0;
-  font-size: 26px;
-  font-weight: 700;
+  font: var(--font-headline-1);
+  color: var(--color-type-primary);
   letter-spacing: -0.02em;
-  line-height: 1.3;
-
-  // Gradient text
-  background: linear-gradient(135deg, 
-    var(--color-type-primary) 0%, 
-    var(--color-type-secondary) 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-
-  // Subtle shadow for depth
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
 }
 
 :global(body.mobile) {
   .logoWrapper {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
   }
 
   .headline {
-    font-size: 22px;
+    font: var(--font-headline-2);
   }
 
   .logo {
-    height: 44px;
+    height: 36px;
   }
 }
 
 :global(body.desktop) {
   .headline {
-    font-size: 28px;
+    font: var(--font-headline-1);
   }
 }

@@ -13,7 +13,7 @@
   margin: 0 auto;
   transform: translate(0, -50%);
   outline: none;
-  border-radius: var(--radius);
+  border-radius: var(--card-radius);
 
   &:focus-visible {
     outline: none;
@@ -23,7 +23,8 @@
 .container {
   padding: _.unit(5);
   background: var(--color-bg-body-overlay);
-  border-radius: var(--radius);
+  border-radius: var(--card-radius);
+  border: 1px solid var(--color-line-border);
 
   &:focus-visible {
     outline: none;
@@ -32,13 +33,13 @@
 
 .content {
   text-align: center;
-  font: var(--font-body-1);
+  font: var(--font-body-2);
   color: var(--color-type-primary);
 }
 
 .footer {
   @include _.flex_row;
-  margin-top: _.unit(6);
+  margin-top: _.unit(5);
 
   > * {
     flex: 1;
@@ -56,7 +57,7 @@
 
   .container {
     padding: 0;
-    border-radius: 12px;
+    border-radius: var(--card-radius);
     width: 100%;
     height: 100%;
     @include _.flex_column(stretch, center);
@@ -71,6 +72,6 @@
   .footer {
     margin-top: 0;
     border-top: 1px solid var(--color-line-divider);
-    padding: _.unit(5);
+    padding: _.unit(4);
   }
 }

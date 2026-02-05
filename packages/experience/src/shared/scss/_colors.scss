@@ -1,15 +1,15 @@
-/* AICO Design System - Landing Page Dark Vibes */
+/* AICO Design System - Developer Aesthetic */
 
 /* Static Base Colors */
 @mixin static {
   --color-static-white: #ffffff;
   --color-static-black: #000000;
-  --color-static-dark-type-primary: #f8fafc; // Grey-50
+  --color-static-dark-type-primary: #fafafa;
 
-  // Shadows
-  --md-elevation-1: 0 1px 3px rgba(0, 0, 0, 0.5);
-  --md-elevation-2: 0 4px 12px rgba(0, 0, 0, 0.4);
-  --md-elevation-3: 0 10px 30px rgba(0, 0, 0, 0.5);
+  // Shadows - minimal, sharp
+  --md-elevation-1: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --md-elevation-2: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --md-elevation-3: 0 4px 8px rgba(0, 0, 0, 0.12);
 }
 
 /* AICO Tokens */
@@ -24,11 +24,6 @@
   --aico-primary-dark: rgb(var(--aico-primary-dark-rgb));
   --accent-color-primary: var(--aico-primary);
 
-  // Landing gradient accent (Mint-Blue)
-  --gradient-start: var(--aico-primary);
-  --gradient-end: #3b82f6;
-  --gradient-primary: linear-gradient(135deg, var(--aico-primary) 0%, #3b82f6 100%);
-
   // Semantic
   --aico-success-rgb: 34, 197, 94;
   --aico-warning-rgb: 245, 158, 11;
@@ -38,29 +33,29 @@
   --aico-warning: rgb(var(--aico-warning-rgb));
   --aico-danger: rgb(var(--aico-danger-rgb));
 
-  // Radii
-  --field-radius: 8px;
-  --card-radius: 16px;
+  // Radii - sharp, minimal
+  --field-radius: 4px;
+  --card-radius: 8px;
 
-  // Motion
-  --aico-motion-standard: 0.15s ease;
+  // Motion - snappy
+  --aico-motion-standard: 0.1s ease;
 }
 
 @mixin light {
-  /* Color Platte */
+  /* Color Palette - Clean neutrals */
   --color-neutral-0: transparent;
-  --color-neutral-10: #0f172a;
-  --color-neutral-20: #e2e8f0;
-  --color-neutral-50: #64748b;
-  --color-neutral-80: #cbd5e1;
-  --color-neutral-90: #f1f5f9;
-  --color-neutral-95: #f8fafc;
+  --color-neutral-10: #111827;
+  --color-neutral-20: #e5e7eb;
+  --color-neutral-50: #6b7280;
+  --color-neutral-80: #d1d5db;
+  --color-neutral-90: #f3f4f6;
+  --color-neutral-95: #f9fafb;
   --color-neutral-100: #ffffff;
 
-  --color-neutral-variant-60: #94a3b8;
-  --color-neutral-variant-70: #cbd5e1;
-  --color-neutral-variant-80: #e2e8f0;
-  --color-neutral-variant-90: #f1f5f9;
+  --color-neutral-variant-60: #9ca3af;
+  --color-neutral-variant-70: #d1d5db;
+  --color-neutral-variant-80: #e5e7eb;
+  --color-neutral-variant-90: #f3f4f6;
 
   --color-danger-30: #991b1b;
   --color-danger-40: #dc2626;
@@ -82,35 +77,35 @@
   --color-alert-90: #fef3c7;
   --color-alert-99: #fffbeb;
 
-  /* Text & Icon */
-  --color-type-primary: #0f172a;
-  --color-type-secondary: #475569;
-  --color-type-disable: rgba(15, 23, 42, 35%);
+  /* Text & Icon - softer contrast */
+  --color-type-primary: #111827;
+  --color-type-secondary: #6b7280;
+  --color-type-disable: rgba(17, 24, 39, 0.4);
   --color-type-link: var(--color-brand-default);
 
-  /* Line */
-  --color-line-divider: rgba(15, 23, 42, 12%);
-  --color-line-border: rgba(15, 23, 42, 0.12);
-  --color-line-border-transparent: rgba(15, 23, 42, 25%);
+  /* Line - very subtle */
+  --color-line-divider: rgba(17, 24, 39, 0.06);
+  --color-line-border: rgba(17, 24, 39, 0.1);
+  --color-line-border-transparent: rgba(17, 24, 39, 0.15);
 
   /* Container */
   --color-container-on-alert: var(--color-alert-70);
   --color-container-alert: var(--color-alert-99);
 
-  /* Background */
-  --color-bg-body-base: #f8fafc;
+  /* Background - clean whites */
+  --color-bg-body-base: #f9fafb;
   --color-bg-body: #ffffff;
   --color-bg-layer-1: #ffffff;
-  --color-bg-layer-2: #f1f5f9;
+  --color-bg-layer-2: #f9fafb;
   --color-bg-body-overlay: #ffffff;
-  --color-bg-float-base: #f1f5f9;
+  --color-bg-float-base: #f9fafb;
   --color-bg-float: #ffffff;
   --color-bg-float-overlay: #ffffff;
-  --color-bg-mask: rgba(0, 0, 0, 40%);
-  --color-bg-toast: #1e293b;
-  --color-bg-state-unselected: #f1f5f9;
-  --color-bg-state-disabled: rgba(15, 23, 42, 8%);
-  --color-bg-light: #f8fafc;
+  --color-bg-mask: rgba(17, 24, 39, 0.4);
+  --color-bg-toast: #1f2937;
+  --color-bg-state-unselected: #f3f4f6;
+  --color-bg-state-disabled: rgba(17, 24, 39, 0.05);
+  --color-bg-light: #f9fafb;
 
   /* Brand */
   --color-brand-default: var(--aico-primary);
@@ -129,40 +124,40 @@
   --color-success-pressed: #14532d;
   --color-success-disable: #bbf7d0;
 
-  /* Overlay */
-  --color-overlay-neutral-hover: rgba(15, 23, 42, 8%);
-  --color-overlay-neutral-pressed: rgba(15, 23, 42, 12%);
-  --color-overlay-neutral-focused: rgba(15, 23, 42, 16%);
-  --color-overlay-danger-hover: rgba(239, 68, 68, 8%);
-  --color-overlay-danger-pressed: rgba(239, 68, 68, 12%);
-  --color-overlay-danger-focused: rgba(239, 68, 68, 16%);
-  --color-overlay-brand-hover: rgba(16, 185, 129, 8%);
-  --color-overlay-brand-pressed: rgba(16, 185, 129, 12%);
-  --color-overlay-brand-focused: rgba(16, 185, 129, 16%);
+  /* Overlay - very subtle */
+  --color-overlay-neutral-hover: rgba(17, 24, 39, 0.04);
+  --color-overlay-neutral-pressed: rgba(17, 24, 39, 0.06);
+  --color-overlay-neutral-focused: rgba(17, 24, 39, 0.08);
+  --color-overlay-danger-hover: rgba(239, 68, 68, 0.06);
+  --color-overlay-danger-pressed: rgba(239, 68, 68, 0.08);
+  --color-overlay-danger-focused: rgba(239, 68, 68, 0.1);
+  --color-overlay-brand-hover: rgba(16, 185, 129, 0.06);
+  --color-overlay-brand-pressed: rgba(16, 185, 129, 0.08);
+  --color-overlay-brand-focused: rgba(16, 185, 129, 0.1);
 
   // AICO Specific tokens
   --aico-body-bg: #ffffff;
   --aico-card-bg: #ffffff;
-  --aico-card-border: 1px solid rgba(15, 23, 42, 0.08);
-  --aico-text-primary: #0f172a;
-  --aico-text-secondary: #475569;
+  --aico-card-border: 1px solid rgba(17, 24, 39, 0.08);
+  --aico-text-primary: #111827;
+  --aico-text-secondary: #6b7280;
 
   --field-bg: #ffffff;
-  --field-bg-hover: #f8fafc;
-  --field-border: rgba(15, 23, 42, 0.12);
-  --field-border-hover: rgba(15, 23, 42, 0.18);
+  --field-bg-hover: #f9fafb;
+  --field-border: rgba(17, 24, 39, 0.12);
+  --field-border-hover: rgba(17, 24, 39, 0.2);
   --field-border-focus: var(--aico-primary);
-  --field-text: #0f172a;
-  --field-placeholder: #94a3b8;
-  --field-focus-ring: rgba(16, 185, 129, 0.3);
+  --field-text: #111827;
+  --field-placeholder: #9ca3af;
+  --field-focus-ring: rgba(16, 185, 129, 0.15);
 
-  --shadow-card: var(--md-elevation-2);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
   --color-brand-40: var(--aico-primary);
   --color-brand-50: var(--aico-primary-dark);
 }
 
 @mixin dark {
-  /* Color Platte */
+  /* Color Palette - AICO Dark Slate */
   --color-neutral-0: #ffffff;
   --color-neutral-10: #f8fafc;
   --color-neutral-20: #cbd5e1;
@@ -197,9 +192,9 @@
   --color-brand-70: var(--aico-primary-light);
 
   --color-surface: var(--color-neutral-99);
-  --color-surface-2: rgba(16, 185, 129, 0.08);
-  --color-surface-3: rgba(16, 185, 129, 0.11);
-  --color-surface-4: rgba(16, 185, 129, 0.14);
+  --color-surface-2: rgba(16, 185, 129, 0.04);
+  --color-surface-3: rgba(16, 185, 129, 0.06);
+  --color-surface-4: rgba(16, 185, 129, 0.08);
 
   --color-alert-60: #ca8000;
   --color-alert-70: #a76900;
@@ -208,20 +203,20 @@
 
   /* Text & Icon */
   --color-type-primary: #f8fafc;
-  --color-type-secondary: #cbd5e1;
-  --color-type-disable: rgba(248, 250, 252, 35%);
+  --color-type-secondary: #94a3b8;
+  --color-type-disable: rgba(248, 250, 252, 0.4);
   --color-type-link: var(--color-brand-default);
 
   /* Line */
-  --color-line-divider: rgba(248, 250, 252, 14%);
+  --color-line-divider: rgba(248, 250, 252, 0.08);
   --color-line-border: rgba(248, 250, 252, 0.12);
-  --color-line-border-transparent: rgba(248, 250, 252, 20%);
+  --color-line-border-transparent: rgba(248, 250, 252, 0.15);
 
   /* Container */
   --color-container-on-alert: var(--color-alert-60);
   --color-container-alert: var(--color-alert-90);
 
-  /* Background */
+  /* Background - AICO Slate */
   --color-bg-body-base: #000000;
   --color-bg-body: #020617;
   --color-bg-body-overlay: #0f172a;
@@ -230,13 +225,13 @@
   --color-bg-float-base: #000000;
   --color-bg-float: #0f172a;
   --color-bg-float-overlay: #1e293b;
-  --color-bg-mask: rgba(0, 0, 0, 60%);
-  --color-bg-toast: #475569;
+  --color-bg-mask: rgba(0, 0, 0, 0.6);
+  --color-bg-toast: #334155;
   --color-bg-state-unselected: #1e293b;
-  --color-bg-state-disabled: rgba(248, 250, 252, 8%);
-  --color-bg-light: rgba(248, 250, 252, 0.16);
+  --color-bg-state-disabled: rgba(248, 250, 252, 0.05);
+  --color-bg-light: rgba(248, 250, 252, 0.08);
 
-  /* Brand */
+  /* Brand - AICO Mint */
   --color-brand-default: var(--aico-primary);
   --color-brand-hover: var(--aico-primary-light);
   --color-brand-pressed: var(--aico-primary-dark);
@@ -254,22 +249,22 @@
   --color-success-disable: #14532d;
 
   /* Overlay */
-  --color-overlay-neutral-hover: rgba(248, 250, 252, 8%);
-  --color-overlay-neutral-pressed: rgba(248, 250, 252, 12%);
-  --color-overlay-neutral-focused: rgba(248, 250, 252, 16%);
-  --color-overlay-danger-hover: rgba(239, 68, 68, 8%);
-  --color-overlay-danger-pressed: rgba(239, 68, 68, 12%);
-  --color-overlay-danger-focused: rgba(239, 68, 68, 16%);
-  --color-overlay-brand-hover: rgba(16, 185, 129, 8%);
-  --color-overlay-brand-pressed: rgba(16, 185, 129, 12%);
-  --color-overlay-brand-focused: rgba(16, 185, 129, 16%);
+  --color-overlay-neutral-hover: rgba(248, 250, 252, 0.04);
+  --color-overlay-neutral-pressed: rgba(248, 250, 252, 0.06);
+  --color-overlay-neutral-focused: rgba(248, 250, 252, 0.08);
+  --color-overlay-danger-hover: rgba(239, 68, 68, 0.08);
+  --color-overlay-danger-pressed: rgba(239, 68, 68, 0.1);
+  --color-overlay-danger-focused: rgba(239, 68, 68, 0.12);
+  --color-overlay-brand-hover: rgba(16, 185, 129, 0.08);
+  --color-overlay-brand-pressed: rgba(16, 185, 129, 0.1);
+  --color-overlay-brand-focused: rgba(16, 185, 129, 0.12);
 
   // AICO Specific tokens
   --aico-body-bg: #020617;
   --aico-card-bg: #0f172a;
   --aico-card-border: 1px solid rgba(248, 250, 252, 0.1);
   --aico-text-primary: #f8fafc;
-  --aico-text-secondary: #cbd5e1;
+  --aico-text-secondary: #94a3b8;
 
   --field-bg: #0f172a;
   --field-bg-hover: #1e293b;
@@ -277,10 +272,10 @@
   --field-border-hover: rgba(248, 250, 252, 0.18);
   --field-border-focus: var(--aico-primary);
   --field-text: #f8fafc;
-  --field-placeholder: #94a3b8;
-  --field-focus-ring: rgba(16, 185, 129, 0.25);
+  --field-placeholder: #64748b;
+  --field-focus-ring: rgba(16, 185, 129, 0.2);
 
-  --shadow-card: var(--md-elevation-3);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.4);
   --color-brand-40: var(--aico-primary);
   --color-brand-50: var(--aico-primary-light);
 }

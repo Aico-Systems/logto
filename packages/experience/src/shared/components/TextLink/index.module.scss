@@ -5,9 +5,10 @@
   -webkit-tap-highlight-color: transparent;
   display: inline-flex;
   justify-content: center;
+  transition: color 0.15s ease;
 
   > svg {
-    margin-inline-end: _.unit(2);
+    margin-inline-end: _.unit(1.5);
   }
 
   &.primary {
@@ -16,12 +17,12 @@
     text-decoration: none;
 
     &:active {
-      color: var(--color-brand-hover);
+      color: var(--color-brand-pressed);
     }
   }
 
   &.secondary {
-    color: var(--color-type-primary);
+    color: var(--color-type-secondary);
     font: inherit;
     text-decoration: none;
   }
@@ -34,12 +35,14 @@
     }
 
     &.primary:focus-visible {
-      outline: _.border(var(--color-overlay-brand-focused));
+      outline: 2px solid var(--color-brand-default);
+      outline-offset: 2px;
+      border-radius: 2px;
     }
 
     &.secondary:hover,
     &.secondary:active {
-      color: var(--color-brand-default);
+      color: var(--color-type-primary);
     }
   }
 }

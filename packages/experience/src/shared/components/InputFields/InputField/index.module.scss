@@ -7,29 +7,26 @@
     position: relative;
     @include _.flex-row;
     overflow: hidden;
-    transition-property: border;
-    transition-timing-function: ease-in-out;
-    transition-duration: 0.2s;
-    background: inherit;
+    transition: border-color 0.15s ease;
+    background: var(--field-bg);
     align-items: stretch;
-
-    // fix in safari input field line-height issue
-    height: 44px;
+    height: 38px;
 
     input {
-      transition: width 0.3s ease-in;
-      padding: 0 _.unit(4);
+      transition: width 0.2s ease;
+      padding: 0 _.unit(3);
       flex: 1;
       background: inherit;
       caret-color: var(--color-brand-default);
-      font: var(--font-body-1);
+      font: var(--font-body-2);
       color: var(--color-type-primary);
       outline: none;
-      border-radius: var(--radius);
+      border-radius: var(--field-radius);
+      letter-spacing: -0.01em;
 
       &::placeholder {
-        color: var(--color-type-secondary);
-        transition: opacity 0.2s ease-out;
+        color: var(--field-placeholder);
+        transition: opacity 0.15s ease;
         opacity: 0%;
       }
 
@@ -38,27 +35,20 @@
       &:-webkit-autofill:focus,
       &:-webkit-autofill:active {
         -webkit-text-fill-color: var(--color-type-primary) !important;
-        // Use inset box-shadow to cover the autofill background color
         -webkit-box-shadow: 0 0 0 1000px var(--field-bg) inset !important;
         box-shadow: 0 0 0 1000px var(--field-bg) inset !important;
         background-color: transparent !important;
-        // Extremely long transition to prevent browser default
         transition: background-color 999999s ease-in-out 0s;
         caret-color: var(--color-brand-default) !important;
       }
 
       &:-webkit-autofill {
-        /*
-         * Define a void transition css rule on the desired <input> element once it is :-webkit-autofilled.
-         * JavaScript will then be able to hook onto the 'animationstart' event.
-         * see https://stackoverflow.com/questions/11708092/detecting-browser-autofill/41530164#41530164
-         */
-        /* stylelint-disable-next-line time-min-milliseconds -- Short duration needed for autofill detection */
+        /* stylelint-disable-next-line time-min-milliseconds */
         animation: onAutoFillStart 0.01s forwards;
       }
 
       &:not(:-webkit-autofill) {
-        /* stylelint-disable-next-line time-min-milliseconds -- Short duration needed for autofill detection */
+        /* stylelint-disable-next-line time-min-milliseconds */
         animation: onAutoFillCancel 0.01s forwards;
       }
     }
@@ -74,7 +64,6 @@
       z-index: 1;
     }
 
-    // Suffix is always visible, no width change on focus
     &.isSuffixFocusVisible {
       input {
         padding-inline-end: _.unit(10);
@@ -100,22 +89,19 @@
 
   &.danger {
     .inputField {
-
-      /* stylelint-disable-next-line no-descending-specificity */
       input {
         caret-color: var(--color-danger-default);
       }
     }
   }
 
-  // override for firefox & safari focus outline since we are using custom notchedOutline
   &:focus-visible {
     outline: none;
   }
 }
 
 .description {
-  font: var(--font-body-2);
+  font: var(--font-body-3);
   color: var(--color-type-secondary);
   padding-top: _.unit(1);
   margin-inline-start: _.unit(0.5);
@@ -126,12 +112,11 @@
   margin-inline-start: _.unit(0.5);
 }
 
-
 :global(body.desktop) {
   .container {
     .inputField {
+      height: 36px;
 
-      /* stylelint-disable-next-line no-descending-specificity */
       input {
         font: var(--font-body-2);
       }
@@ -139,26 +124,16 @@
   }
 }
 
-
-/*
-* Define a void transition css rule on the desired <input> element once it is :-webkit-autofilled.
-* JavaScript will then be able to hook onto the 'animationstart' event.
-* see https://stackoverflow.com/questions/11708092/detecting-browser-autofill/41530164#41530164
-*/
 @keyframes onAutoFillStart {
-
   /* stylelint-disable-next-line block-no-empty */
   from {}
-
   /* stylelint-disable-next-line block-no-empty */
   to {}
 }
 
 @keyframes onAutoFillCancel {
-
   /* stylelint-disable-next-line block-no-empty */
   from {}
-
   /* stylelint-disable-next-line block-no-empty */
   to {}
 }

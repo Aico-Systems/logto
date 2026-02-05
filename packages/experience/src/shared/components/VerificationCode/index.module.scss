@@ -3,25 +3,27 @@
 .passcode {
   @include _.flex-row;
   justify-content: space-between;
+  gap: _.unit(2);
 
   input {
-    width: 44px;
-    height: 44px;
-    border-radius: _.unit(2);
-    border: _.border(var(--color-line-border));
-    background: transparent;
+    width: 42px;
+    height: 42px;
+    border-radius: var(--field-radius);
+    border: 1px solid var(--field-border);
+    background: var(--field-bg);
     text-align: center;
     font: var(--font-label-1);
     color: var(--color-type-primary);
     caret-color: var(--color-brand-default);
+    transition: border-color 0.1s ease;
 
     &:focus {
-      border: _.border(var(--color-brand-default));
+      border-color: var(--color-brand-default);
       outline: none;
     }
 
     &::placeholder {
-      color: var(--color-type-secondary);
+      color: var(--field-placeholder);
     }
   }
 }
@@ -34,12 +36,12 @@
 :global(body.desktop) {
   .passcode {
     input {
+      width: 40px;
+      height: 40px;
       font: var(--font-body-2);
-      outline: 3px solid transparent;
 
       &:focus {
-        border: _.border(var(--color-brand-default));
-        outline-color: var(--color-overlay-brand-focused);
+        border-width: 1.5px;
       }
     }
   }
