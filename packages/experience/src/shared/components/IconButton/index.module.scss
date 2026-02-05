@@ -4,34 +4,31 @@
   border: none;
   outline: none;
   background: transparent;
-  border-radius: 8px;
-  padding: 8px;
+  border-radius: 4px;
+  padding: 6px;
   @include _.flex-column;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.15s ease;
+  opacity: 0.4;
 
-  >svg {
-    width: 20px;
-    height: 20px;
+  > svg {
+    width: 18px;
+    height: 18px;
     color: var(--color-type-secondary);
-    transition: color 0.2s ease;
+    transition: color 0.15s ease;
   }
 
   &:hover {
-    background: var(--color-overlay-neutral-hover);
-
-    >svg {
-      color: var(--color-type-primary);
-    }
+    opacity: 0.7;
   }
 
   &:active {
-    background: var(--color-overlay-neutral-pressed);
-    transform: scale(0.95);
+    opacity: 1;
   }
 
   &:focus-visible {
     outline: 2px solid var(--color-brand-default);
-    outline-offset: 2px;
+    outline-offset: 1px;
+    opacity: 1;
   }
 }
