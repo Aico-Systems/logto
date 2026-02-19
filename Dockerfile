@@ -7,7 +7,7 @@ ENV CI=true
 ENV PUPPETEER_SKIP_DOWNLOAD=true
 
 ### Install toolchain ###
-RUN npm add --location=global pnpm@^10.0.0
+RUN corepack enable && corepack prepare pnpm@10.0.0 --activate
 # https://github.com/nodejs/docker-node/blob/main/docs/BestPractices.md#node-gyp-alpine
 RUN apk add --no-cache python3 make g++ rsync
 
