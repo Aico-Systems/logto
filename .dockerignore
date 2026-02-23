@@ -35,5 +35,8 @@ dump.rdb
 .husky
 .vscode
 
+# pnpm store (huge, not needed in build)
+.pnpm-store
+
 # readme assets
 /assets/
